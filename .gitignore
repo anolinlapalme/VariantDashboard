@@ -1,0 +1,25 @@
+# Generated data release and build caches (rebuilt monthly by build_brca1_db.py; tens of MB)
+brca1-data.js
+brca1-data.js.tmp
+.brca1-build-cache/
+brca1-releases/
+
+# Shared store: holds patient-related records. Never commit.
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+*.db
+backup*.json
+
+# Laboratory files: keep reported-variant lists, in-house exports and pedigrees here, outside git
+private/
+
+# TLS keys and certificates
+*.pem
+*.key
+*.crt
+
+# Python and OS clutter
+__pycache__/
+*.pyc
+.DS_Store

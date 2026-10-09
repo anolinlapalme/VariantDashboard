@@ -1,0 +1,5 @@
+hgvsc,classification,date,sample
+c.5096G>A,Likely pathogenic,2025-01-10,EXAMPLE-0001
+c.1459G>T,Uncertain significance,2025-02-01,EXAMPLE-0002
+NM_007294.4:c.5266dupC,Pathogenic,2024-05-05,EXAMPLE-0003
+c.5324T>G,Pathogenic,2023-01-01,EXAMPLE-0004
