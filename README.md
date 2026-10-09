@@ -50,19 +50,6 @@ python3 build_brca1_db.py --help
 
 The reported-variants file needs an `hgvsc` column and can have `classification`, `date` and `sample` columns (see `examples/reported_variants_example.csv`). The page's in-house CSV works as is. Keep such files in `private/`, which git ignores.
 
-## Shared store (whole laboratory)
-
-`brca1_server.py` serves the page and the data release on the hospital network and keeps the laboratory's records in one SQLite file: notes, laboratory classifications, snapshots, pedigrees, the watch list and in-house data. Classifications are proposed by one reviewer with a rationale and signed off, or returned, by a second; the server refuses a sign-off by the proposer. Every change is written to an audit trail, viewable per variant in the page.
-
-```bash
-python3 brca1_server.py adduser atremblay --display "A. Tremblay" --admin   # asks for a password
-python3 brca1_server.py adduser blavoie --display "B. Lavoie"
-python3 brca1_server.py serve --host 0.0.0.0 --port 8443 --cert cert.pem --key key.pem
-python3 brca1_server.py export > backup.json     # every record and the audit trail
-```
-
-Colleagues then open `https://<server>:8443/` and sign in. Opened from a file instead, the page keeps records in that browser only; the Record section then offers to copy them to the shared store.
-
 Deployment notes:
 
 - Run it on a hospital machine with HTTPS (`--cert/--key`, or behind the hospital's HTTPS proxy with `--secure-cookie`). Without TLS, passwords and records cross the network unencrypted.
